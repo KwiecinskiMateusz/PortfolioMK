@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Portfolio:<br />
+						Mateusz Kwieciński</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Projects</a></li>
+							<li class="active"><a href="project1.html">Project 1</a></li>
+							<li><a href="project2.html">Project 2</a></li>
+							<li><a href="project3.html">Project 3</a></li>
+							<li><a href="project4.html">Project 4</a></li>
+							<li><a href="project5.html">Project 5</a></li>
+							<li><a href="elements.html">My CV</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/mateusz-kwieci%C5%84ski/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/KwiecinskiMateusz" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.kaggle.com/mateuszkwieciski" class="icon brands fa-kaggle"><span class="label">Kaggle</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date"><strong>Project 1</strong></span>
+									<h1>ELT Pipeline<br />
+									</h1>
+									
+									
+								</header>
+								
+								<p><span style="font-size: 20px; font-weight: bold; text-align: center;">Project Overview: </span><br />
+									<strong>1.</strong> Introduction & SQL Code Repository <br />
+									<strong>2.</strong> Extract: Data Acquisition <br />
+									<strong>3.</strong> Load: Database Initialization <br />
+									<strong>4.</strong> Transform: Data Cleaning & Manipulation <br />
+									<strong>5.</strong> Transform: Featured Engineering <br />
+									<strong>6.</strong> Final Dataset <br />
+								</p>
+								<div class="image main"><img src="images/ELTproject.JPG" width="550" height="313" alt="" /></div>
+								<p style="text-align: justify;"><span style="font-size: 20px; font-weight: bold; text-align: center;">1. Introduction & SQL Code Repository</span> <br />
+									
+									The objective of the ELT (Extract, Load and Transform) project was to prepare and transform 
+									raw data into a structured and analyzable format. As part of the project, CSV files were imported into 
+									a MySQL database, where transformation operations were performed, including data cleaning, 
+									normalization and feature engineering. <br />
+									<strong>The final SQL code is available on my GitHub profile: <a href="https://github.com/KwiecinskiMateusz/Project1_ELT_Pipeline">LINK</strong></a>. <br />
+									Below is a step-by-step text description of all actions carried out in this ELT project.
+								</p>
+								<p style="text-align: justify;"><span style="font-size: 20px; font-weight: bold; text-align: center;">2. Extract: Data Acquisition</span> <br />
+								The project began with the acquisition of three distinct CSV datasets:<br />
+								<strong>2.1 "World Population 1960-2023 by Country" Dataset:</strong> The first dataset detailed population statistics for 255 countries and regions by 1960 - 2023 period. The dataset was sourced from Kaggle, provided by the user "MSc Ido Amit". The link to the original data source can be found <a href="https://www.kaggle.com/datasets/mscidoamit/world-population-by-country-years-1960-2023">HERE</a> (accessed: 16.03.2025). <br />
+								Below is the original structure of the raw dataset: <br />
+								<div class="image main"><img src="images/pic1_1.JPG" alt="" /></div>
+								<strong>2.2 "Mean temperature for countries by year 1901-2022" Dataset:</strong> The second dataset captured historical annual mean temperature records and 5 year smooth temperature values for 170 countries by 1901 - 2022 period. The dataset was sourced from Kaggle, provided by the user "palinatx". The link to the original data source can be found <a href="https://www.kaggle.com/datasets/palinatx/mean-temperature-for-countries-by-year-2014-2022">HERE</a> (accessed: 16.03.2025). <br />
+								Below is the original structure of the raw dataset: <br />
+								<div class="image main"><img src="images/pic1_2.JPG" width="204" height="314" alt="" /></div>
+								<strong>2.3 "Electricity Generation" Dataset:</strong> The third dataset focused on electricity generation, offering yearly metrics for 251 countries and regions by 1985 - 2023 period. The dataset was sourced from Energy Institute (Ember (2024); Energy Institute - Statistical Review of World Energy (2024) – with major processing by Our World in Data). Dataset available online <a href="https://ourworldindata.org/energy-production-consumption">HERE</a> (accessed: 16.03.2025). <br />
+								Below is the original structure of the raw dataset: <br />
+								<div class="image main"><img src="images/pic1_3.JPG" width="204" height="314" alt="" /></div>
+								</p>
+								<p style="text-align: justify;"><span style="font-size: 20px; font-weight: bold; text-align: center;">3. Load: Database Initialization</span> <br />
+								To establish a structured data processing environment, the <strong>energy_analysis</strong> database was created in MySQL, serving as the main repository for raw datasets. <br />
+								Within the <strong>energy_analysis</strong> database, three tables were created — <strong>world_temperature</strong>, <strong>electricity_generation</strong>, and <strong>population_table</strong> — each mirroring the structure of the corresponding CSV sources to maintain the integrity of the original data. 
+								</p>
+								<p style="text-align: justify;"><span style="font-size: 20px; font-weight: bold; text-align: center;">4. Transform: Data Cleaning & Manipulation</span> <br />
+									The transformation phase began with aligning all datasets to an unified timeframe <strong>(2000–2022)</strong> to enable consistent cross-dataset analysis, requiring the removal of records outside this range. 
+									Next, structural inconsistencies were addressed by standardizing column names, data types, and table schemas across the three sources. Redundant or non-essential columns were eliminated to reduce complexity and focus on core analytical variables. 
+									A critical challenge was resolving country name discrepancies—for example, harmonizing variations like "United States" and "USA" —using a standardized country-code reference to ensure uniformity. Typographical errors and regional naming differences were systematically corrected to avoid fragmentation in geographical analysis. 
+									To guarantee data integrity, duplicate entries were purged, and only countries present across all three datasets were retained, resulting in a refined subset of <strong>160 countries</strong> to prevent incomplete or biased insights. <br />
+									Finally, the cleaned datasets were merged into a single table, <strong>final_analysis_table</strong>, which consolidated yearly records of temperature, population, and energy generation into a cohesive structure optimized for analytical queries.
+								</p>
+								<p style="text-align: justify;"><span style="font-size: 20px; font-weight: bold; text-align: center;">5. Transform: Featured Engineering</span> <br />
+								To enable robust potential analysis, three key features were derived:<br />
+								<strong>5.1 Year-over-Year Changes:</strong> Absolute differences in population, temperature, and energy production compared to the prior year. As the result, the following columns have been added to the final table: <strong>population_growth</strong>, <strong>electro_growth</strong> and <strong>temp_growth</strong><br />
+								<strong>5.2 Percentage Year-over-Year Changes:</strong> Standardized growth/decline rates for each metric. As the result, the following columns have been added to the final table: <strong>population_growth_pct</strong>, <strong>temp_growth_pct</strong> and <strong>electro_growth_pct</strong><br />
+								<strong>5.3 Energy Production per Capita:</strong> Annual electricity production divided by population. As the result, the following column have been added to the final table: <strong>electro_per_capita_kwh</strong><br />
+								</p>
+								<p style="text-align: justify;"><span style="font-size: 20px; font-weight: bold; text-align: center;">6. Final Dataset</span> <br />
+									As a final step, the SQL code includes basic data aggregation related to population, temperature, and energy generation data. This project focuses on data extraction and transformation, ensuring that the final dataset is structured and ready for export in CSV format, making it suitable for potential exploratory data analysis (EDA) and visualization of the results.<br />
+									The final SQL code is available on my GitHub profile: <a href="https://github.com/KwiecinskiMateusz/Project1_ELT_Pipeline"><strong>LINK</strong></a>.
+									</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="alt">
+								<h3>Location</h3>
+								<p>Dziwnówek<br />
+								West Pomerania, Poland</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p>(+48) 725-155-805</p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p>kwiecinski.mp5@gmail.com</p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/mateusz-kwieci%C5%84ski/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/KwiecinskiMateusz" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.kaggle.com/mateuszkwieciski" class="icon brands fa-kaggle"><span class="label">Kaggle</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
